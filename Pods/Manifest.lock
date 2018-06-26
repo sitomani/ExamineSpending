@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.7.2)
+  - SwiftyBeaver (1.6.0)
+  - YMTreeMap (1.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7.1)
+  - SwiftyBeaver
+  - YMTreeMap
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - SwiftyBeaver
+    - YMTreeMap
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
+  YMTreeMap: b0c9004b4b072a360e85d3442915eed7deedcfa4
+
+PODFILE CHECKSUM: bcf78d7b15c9eecc0b519b4f046ea9a3593bf764
+
+COCOAPODS: 1.5.2

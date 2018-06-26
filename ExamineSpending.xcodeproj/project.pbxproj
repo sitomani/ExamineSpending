@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36BD68A36E323CF76D25C914 /* Pods_ExamineSpending.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D766FE61FF13CE6FA1FB14 /* Pods_ExamineSpending.framework */; };
+		452095FD20246D6A004D748E /* RESTRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452095FC20246D6A004D748E /* RESTRoutes.swift */; };
+		452095FF20247563004D748E /* NordeaRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452095FE20247563004D748E /* NordeaRequestAdapter.swift */; };
+		45209612202834B8004D748E /* TreeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45209611202834B8004D748E /* TreeModel.swift */; };
+		455C2B44202442E000ABEE00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455C2B43202442E000ABEE00 /* AppDelegate.swift */; };
+		455C2B49202442E000ABEE00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455C2B47202442E000ABEE00 /* Main.storyboard */; };
+		455C2B4B202442E000ABEE00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455C2B4A202442E000ABEE00 /* Assets.xcassets */; };
+		455C2B4E202442E000ABEE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455C2B4C202442E000ABEE00 /* LaunchScreen.storyboard */; };
+		45846B4520A579D6008EA4D2 /* NordeaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45846B4420A579D6008EA4D2 /* NordeaModels.swift */; };
+		45846B4D20A5BBB8008EA4D2 /* ESModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45846B4C20A5BBB8008EA4D2 /* ESModels.swift */; };
+		45846B4F20A5BD02008EA4D2 /* OPModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45846B4E20A5BD02008EA4D2 /* OPModels.swift */; };
+		45846B5120A5C4D1008EA4D2 /* OPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45846B5020A5C4D1008EA4D2 /* OPRequestAdapter.swift */; };
+		45D61F3520E0E47F00869814 /* TransactionPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F1D20E0E47F00869814 /* TransactionPagerViewController.swift */; };
+		45D61F3620E0E47F00869814 /* TransactionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F1E20E0E47F00869814 /* TransactionRouter.swift */; };
+		45D61F3720E0E47F00869814 /* TransactionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F1F20E0E47F00869814 /* TransactionModels.swift */; };
+		45D61F3820E0E47F00869814 /* TransactionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2020E0E47F00869814 /* TransactionPresenter.swift */; };
+		45D61F3920E0E47F00869814 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2120E0E47F00869814 /* TransactionViewController.swift */; };
+		45D61F3A20E0E47F00869814 /* TransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2220E0E47F00869814 /* TransactionInteractor.swift */; };
+		45D61F3B20E0E47F00869814 /* DateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2420E0E47F00869814 /* DateSelectionViewController.swift */; };
+		45D61F3C20E0E47F00869814 /* ExaminerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2620E0E47F00869814 /* ExaminerRouter.swift */; };
+		45D61F3D20E0E47F00869814 /* ExaminerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2720E0E47F00869814 /* ExaminerWorker.swift */; };
+		45D61F3E20E0E47F00869814 /* ExaminerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2820E0E47F00869814 /* ExaminerModels.swift */; };
+		45D61F3F20E0E47F00869814 /* ExaminerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2920E0E47F00869814 /* ExaminerInteractor.swift */; };
+		45D61F4020E0E47F00869814 /* ExaminerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2A20E0E47F00869814 /* ExaminerPresenter.swift */; };
+		45D61F4120E0E47F00869814 /* TreemapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2B20E0E47F00869814 /* TreemapView.swift */; };
+		45D61F4220E0E47F00869814 /* ExaminerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2C20E0E47F00869814 /* ExaminerViewController.swift */; };
+		45D61F4320E0E47F00869814 /* OPLoginWorkerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2E20E0E47F00869814 /* OPLoginWorkerWorker.swift */; };
+		45D61F4420E0E47F00869814 /* NordeaLoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F2F20E0E47F00869814 /* NordeaLoginWorker.swift */; };
+		45D61F4520E0E47F00869814 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F3020E0E47F00869814 /* LoginInteractor.swift */; };
+		45D61F4620E0E47F00869814 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F3120E0E47F00869814 /* LoginModels.swift */; };
+		45D61F4720E0E47F00869814 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F3220E0E47F00869814 /* LoginViewController.swift */; };
+		45D61F4820E0E47F00869814 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F3320E0E47F00869814 /* LoginPresenter.swift */; };
+		45D61F4920E0E47F00869814 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D61F3420E0E47F00869814 /* LoginRouter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		452095FC20246D6A004D748E /* RESTRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTRoutes.swift; sourceTree = "<group>"; };
+		452095FE20247563004D748E /* NordeaRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordeaRequestAdapter.swift; sourceTree = "<group>"; };
+		45209611202834B8004D748E /* TreeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeModel.swift; sourceTree = "<group>"; };
+		455C2B40202442E000ABEE00 /* ExamineSpending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamineSpending.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		455C2B43202442E000ABEE00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		455C2B48202442E000ABEE00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		455C2B4A202442E000ABEE00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		455C2B4D202442E000ABEE00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		455C2B4F202442E000ABEE00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45846B4420A579D6008EA4D2 /* NordeaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NordeaModels.swift; path = ExamineSpending/Models/Nordea/NordeaModels.swift; sourceTree = SOURCE_ROOT; };
+		45846B4C20A5BBB8008EA4D2 /* ESModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESModels.swift; sourceTree = "<group>"; };
+		45846B4E20A5BD02008EA4D2 /* OPModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPModels.swift; sourceTree = "<group>"; };
+		45846B5020A5C4D1008EA4D2 /* OPRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPRequestAdapter.swift; sourceTree = "<group>"; };
+		45D61F1D20E0E47F00869814 /* TransactionPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionPagerViewController.swift; sourceTree = "<group>"; };
+		45D61F1E20E0E47F00869814 /* TransactionRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionRouter.swift; sourceTree = "<group>"; };
+		45D61F1F20E0E47F00869814 /* TransactionModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModels.swift; sourceTree = "<group>"; };
+		45D61F2020E0E47F00869814 /* TransactionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionPresenter.swift; sourceTree = "<group>"; };
+		45D61F2120E0E47F00869814 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		45D61F2220E0E47F00869814 /* TransactionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionInteractor.swift; sourceTree = "<group>"; };
+		45D61F2420E0E47F00869814 /* DateSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSelectionViewController.swift; sourceTree = "<group>"; };
+		45D61F2620E0E47F00869814 /* ExaminerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExaminerRouter.swift; sourceTree = "<group>"; };
+		45D61F2720E0E47F00869814 /* ExaminerWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExaminerWorker.swift; sourceTree = "<group>"; };
+		45D61F2820E0E47F00869814 /* ExaminerModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExaminerModels.swift; sourceTree = "<group>"; };
+		45D61F2920E0E47F00869814 /* ExaminerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExaminerInteractor.swift; sourceTree = "<group>"; };
+		45D61F2A20E0E47F00869814 /* ExaminerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExaminerPresenter.swift; sourceTree = "<group>"; };
+		45D61F2B20E0E47F00869814 /* TreemapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreemapView.swift; sourceTree = "<group>"; };
+		45D61F2C20E0E47F00869814 /* ExaminerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExaminerViewController.swift; sourceTree = "<group>"; };
+		45D61F2E20E0E47F00869814 /* OPLoginWorkerWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPLoginWorkerWorker.swift; sourceTree = "<group>"; };
+		45D61F2F20E0E47F00869814 /* NordeaLoginWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NordeaLoginWorker.swift; sourceTree = "<group>"; };
+		45D61F3020E0E47F00869814 /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		45D61F3120E0E47F00869814 /* LoginModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		45D61F3220E0E47F00869814 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		45D61F3320E0E47F00869814 /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		45D61F3420E0E47F00869814 /* LoginRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		6829FEF54D6797B5E00E6A59 /* Pods-ExamineSpending.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamineSpending.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExamineSpending/Pods-ExamineSpending.release.xcconfig"; sourceTree = "<group>"; };
+		6A1D05E3C09CD9D4359490A7 /* Pods-ExamineSpending.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamineSpending.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExamineSpending/Pods-ExamineSpending.debug.xcconfig"; sourceTree = "<group>"; };
+		72D766FE61FF13CE6FA1FB14 /* Pods_ExamineSpending.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamineSpending.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		455C2B3D202442E000ABEE00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36BD68A36E323CF76D25C914 /* Pods_ExamineSpending.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		455C2B37202442E000ABEE00 = {
+			isa = PBXGroup;
+			children = (
+				455C2B42202442E000ABEE00 /* ExamineSpending */,
+				455C2B41202442E000ABEE00 /* Products */,
+				DA1A4B8FBE43F9D62CEC5D1C /* Pods */,
+				F5090F4A747639755DFE5D24 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		455C2B41202442E000ABEE00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				455C2B40202442E000ABEE00 /* ExamineSpending.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		455C2B42202442E000ABEE00 /* ExamineSpending */ = {
+			isa = PBXGroup;
+			children = (
+				45D61F1B20E0E47F00869814 /* Scenes */,
+				45846B4720A5BB9A008EA4D2 /* Models */,
+				455C2B43202442E000ABEE00 /* AppDelegate.swift */,
+				455C2B47202442E000ABEE00 /* Main.storyboard */,
+				455C2B4A202442E000ABEE00 /* Assets.xcassets */,
+				455C2B4C202442E000ABEE00 /* LaunchScreen.storyboard */,
+				455C2B4F202442E000ABEE00 /* Info.plist */,
+				452095FC20246D6A004D748E /* RESTRoutes.swift */,
+				45209611202834B8004D748E /* TreeModel.swift */,
+			);
+			path = ExamineSpending;
+			sourceTree = "<group>";
+		};
+		45846B4720A5BB9A008EA4D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45846B4820A5BB9A008EA4D2 /* Nordea */,
+				45846B4B20A5BB9A008EA4D2 /* OP */,
+				45846B4C20A5BBB8008EA4D2 /* ESModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		45846B4820A5BB9A008EA4D2 /* Nordea */ = {
+			isa = PBXGroup;
+			children = (
+				452095FE20247563004D748E /* NordeaRequestAdapter.swift */,
+				45846B4420A579D6008EA4D2 /* NordeaModels.swift */,
+			);
+			path = Nordea;
+			sourceTree = "<group>";
+		};
+		45846B4B20A5BB9A008EA4D2 /* OP */ = {
+			isa = PBXGroup;
+			children = (
+				45846B4E20A5BD02008EA4D2 /* OPModels.swift */,
+				45846B5020A5C4D1008EA4D2 /* OPRequestAdapter.swift */,
+			);
+			path = OP;
+			sourceTree = "<group>";
+		};
+		45D61F1B20E0E47F00869814 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				45D61F1C20E0E47F00869814 /* TransactionScene */,
+				45D61F2320E0E47F00869814 /* DateSelectionScene */,
+				45D61F2520E0E47F00869814 /* ExaminerScene */,
+				45D61F2D20E0E47F00869814 /* LoginScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		45D61F1C20E0E47F00869814 /* TransactionScene */ = {
+			isa = PBXGroup;
+			children = (
+				45D61F1D20E0E47F00869814 /* TransactionPagerViewController.swift */,
+				45D61F1E20E0E47F00869814 /* TransactionRouter.swift */,
+				45D61F1F20E0E47F00869814 /* TransactionModels.swift */,
+				45D61F2020E0E47F00869814 /* TransactionPresenter.swift */,
+				45D61F2120E0E47F00869814 /* TransactionViewController.swift */,
+				45D61F2220E0E47F00869814 /* TransactionInteractor.swift */,
+			);
+			path = TransactionScene;
+			sourceTree = "<group>";
+		};
+		45D61F2320E0E47F00869814 /* DateSelectionScene */ = {
+			isa = PBXGroup;
+			children = (
+				45D61F2420E0E47F00869814 /* DateSelectionViewController.swift */,
+			);
+			path = DateSelectionScene;
+			sourceTree = "<group>";
+		};
+		45D61F2520E0E47F00869814 /* ExaminerScene */ = {
+			isa = PBXGroup;
+			children = (
+				45D61F2620E0E47F00869814 /* ExaminerRouter.swift */,
+				45D61F2720E0E47F00869814 /* ExaminerWorker.swift */,
+				45D61F2820E0E47F00869814 /* ExaminerModels.swift */,
+				45D61F2920E0E47F00869814 /* ExaminerInteractor.swift */,
+				45D61F2A20E0E47F00869814 /* ExaminerPresenter.swift */,
+				45D61F2B20E0E47F00869814 /* TreemapView.swift */,
+				45D61F2C20E0E47F00869814 /* ExaminerViewController.swift */,
+			);
+			path = ExaminerScene;
+			sourceTree = "<group>";
+		};
+		45D61F2D20E0E47F00869814 /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				45D61F2E20E0E47F00869814 /* OPLoginWorkerWorker.swift */,
+				45D61F2F20E0E47F00869814 /* NordeaLoginWorker.swift */,
+				45D61F3020E0E47F00869814 /* LoginInteractor.swift */,
+				45D61F3120E0E47F00869814 /* LoginModels.swift */,
+				45D61F3220E0E47F00869814 /* LoginViewController.swift */,
+				45D61F3320E0E47F00869814 /* LoginPresenter.swift */,
+				45D61F3420E0E47F00869814 /* LoginRouter.swift */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		DA1A4B8FBE43F9D62CEC5D1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A1D05E3C09CD9D4359490A7 /* Pods-ExamineSpending.debug.xcconfig */,
+				6829FEF54D6797B5E00E6A59 /* Pods-ExamineSpending.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F5090F4A747639755DFE5D24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72D766FE61FF13CE6FA1FB14 /* Pods_ExamineSpending.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		455C2B3F202442E000ABEE00 /* ExamineSpending */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 455C2B52202442E000ABEE00 /* Build configuration list for PBXNativeTarget "ExamineSpending" */;
+			buildPhases = (
+				AE40530EC1E0CAEA8EBA07ED /* [CP] Check Pods Manifest.lock */,
+				455C2B3C202442E000ABEE00 /* Sources */,
+				455C2B3D202442E000ABEE00 /* Frameworks */,
+				455C2B3E202442E000ABEE00 /* Resources */,
+				5971C37955D804C4AFFAE26B /* [CP] Embed Pods Frameworks */,
+				45736BCA20D3903D00342677 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExamineSpending;
+			productName = ExamineSpending;
+			productReference = 455C2B40202442E000ABEE00 /* ExamineSpending.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		455C2B38202442E000ABEE00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Boogie;
+				TargetAttributes = {
+					455C2B3F202442E000ABEE00 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 455C2B3B202442E000ABEE00 /* Build configuration list for PBXProject "ExamineSpending" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 455C2B37202442E000ABEE00;
+			productRefGroup = 455C2B41202442E000ABEE00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				455C2B3F202442E000ABEE00 /* ExamineSpending */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		455C2B3E202442E000ABEE00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455C2B4E202442E000ABEE00 /* LaunchScreen.storyboard in Resources */,
+				455C2B4B202442E000ABEE00 /* Assets.xcassets in Resources */,
+				455C2B49202442E000ABEE00 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45736BCA20D3903D00342677 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		5971C37955D804C4AFFAE26B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ExamineSpending/Pods-ExamineSpending-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/YMTreeMap/YMTreeMap.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YMTreeMap.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExamineSpending/Pods-ExamineSpending-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE40530EC1E0CAEA8EBA07ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExamineSpending-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		455C2B3C202442E000ABEE00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45D61F4720E0E47F00869814 /* LoginViewController.swift in Sources */,
+				45209612202834B8004D748E /* TreeModel.swift in Sources */,
+				452095FD20246D6A004D748E /* RESTRoutes.swift in Sources */,
+				45846B4D20A5BBB8008EA4D2 /* ESModels.swift in Sources */,
+				45D61F4520E0E47F00869814 /* LoginInteractor.swift in Sources */,
+				45D61F3B20E0E47F00869814 /* DateSelectionViewController.swift in Sources */,
+				45D61F3820E0E47F00869814 /* TransactionPresenter.swift in Sources */,
+				45D61F3620E0E47F00869814 /* TransactionRouter.swift in Sources */,
+				455C2B44202442E000ABEE00 /* AppDelegate.swift in Sources */,
+				45D61F4020E0E47F00869814 /* ExaminerPresenter.swift in Sources */,
+				45846B4520A579D6008EA4D2 /* NordeaModels.swift in Sources */,
+				45D61F3520E0E47F00869814 /* TransactionPagerViewController.swift in Sources */,
+				45D61F3F20E0E47F00869814 /* ExaminerInteractor.swift in Sources */,
+				45D61F4320E0E47F00869814 /* OPLoginWorkerWorker.swift in Sources */,
+				45D61F3C20E0E47F00869814 /* ExaminerRouter.swift in Sources */,
+				45D61F3E20E0E47F00869814 /* ExaminerModels.swift in Sources */,
+				45D61F4820E0E47F00869814 /* LoginPresenter.swift in Sources */,
+				45D61F4420E0E47F00869814 /* NordeaLoginWorker.swift in Sources */,
+				45D61F4220E0E47F00869814 /* ExaminerViewController.swift in Sources */,
+				45D61F4120E0E47F00869814 /* TreemapView.swift in Sources */,
+				45D61F3D20E0E47F00869814 /* ExaminerWorker.swift in Sources */,
+				45D61F3720E0E47F00869814 /* TransactionModels.swift in Sources */,
+				45D61F4920E0E47F00869814 /* LoginRouter.swift in Sources */,
+				45D61F3A20E0E47F00869814 /* TransactionInteractor.swift in Sources */,
+				452095FF20247563004D748E /* NordeaRequestAdapter.swift in Sources */,
+				45846B4F20A5BD02008EA4D2 /* OPModels.swift in Sources */,
+				45D61F4620E0E47F00869814 /* LoginModels.swift in Sources */,
+				45D61F3920E0E47F00869814 /* TransactionViewController.swift in Sources */,
+				45846B5120A5C4D1008EA4D2 /* OPRequestAdapter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		455C2B47202442E000ABEE00 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				455C2B48202442E000ABEE00 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		455C2B4C202442E000ABEE00 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				455C2B4D202442E000ABEE00 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		455C2B50202442E000ABEE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		455C2B51202442E000ABEE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		455C2B53202442E000ABEE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A1D05E3C09CD9D4359490A7 /* Pods-ExamineSpending.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2G92PSCBJ9;
+				INFOPLIST_FILE = ExamineSpending/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.boogie.ExamineSpending;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		455C2B54202442E000ABEE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6829FEF54D6797B5E00E6A59 /* Pods-ExamineSpending.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2G92PSCBJ9;
+				INFOPLIST_FILE = ExamineSpending/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.boogie.ExamineSpending;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		455C2B3B202442E000ABEE00 /* Build configuration list for PBXProject "ExamineSpending" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455C2B50202442E000ABEE00 /* Debug */,
+				455C2B51202442E000ABEE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		455C2B52202442E000ABEE00 /* Build configuration list for PBXNativeTarget "ExamineSpending" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455C2B53202442E000ABEE00 /* Debug */,
+				455C2B54202442E000ABEE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 455C2B38202442E000ABEE00 /* Project object */;
+}
