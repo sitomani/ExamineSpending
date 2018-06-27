@@ -8,7 +8,7 @@ Simple iOS application demo project that uses two Finnish banks' Open Banking in
 
 To build this app and run it in simulator/device you will need to register to the [Nordea Developer Portal](https://developer.nordeaopenbanking.com/) and [OP Developer Portal](https://op-developer.fi/) for obtaining your own API keys. 
 
-ExamineSpending application is built for [Nordea Accounts API](https://developer.nordeaopenbanking.com/app/accounts) and [OP Accounts API V1](https://op-developer.fi/docs/api/5mYDU9uBkkeUeesoyCMcIw/Accounts). OP has recently released Accounts API v2 and deprecated the older version. ExamineSpending will be changed to support that in a future update.
+ExamineSpending application is built for [Nordea Accounts API V2](https://developer.nordeaopenbanking.com/app/accounts) and [OP Accounts API V1](https://op-developer.fi/docs/api/5mYDU9uBkkeUeesoyCMcIw/Accounts). OP has recently released Accounts API v2 and deprecated the older version. ExamineSpending will be changed to support that in a future update.
 
 Once you have the keys, you can add them to the bank-specific request adapter files. Once you've cloned the repository, you'll find the slots for typing in your API keys in *NordeaRequestAdapter.swift* and *OPRequestAdapter.swift* respectively.
 
