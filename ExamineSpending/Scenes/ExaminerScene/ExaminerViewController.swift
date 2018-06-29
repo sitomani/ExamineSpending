@@ -85,10 +85,11 @@ class ExaminerViewController: UIViewController, ExaminerDisplayLogic {
     log.verbose("")
     dismissProgressAlert(atOnce: false)
 
-    if viewModel.blocks.count == 0 {
+    if viewModel.blocks.count == 0 && viewModel.pathlen > 1 {
       self.performSegue(withIdentifier: "TransactionPager", sender: self)
       return
     }
+
     showBreadCrumbs(viewModel.pathlen)
 
     navigationItem.title = viewModel.title

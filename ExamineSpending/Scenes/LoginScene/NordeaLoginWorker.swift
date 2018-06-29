@@ -21,8 +21,10 @@ struct Args: Codable {
 }
 
 class NordeaLoginWorker: LoginWorker {
-  var completionHandler: ((ESError?) -> Void)?
-  func authenticate(_ completion: @escaping (ESError?) -> Void) {
+  var loginArgs: Args?
+  var completionHandler: ((URL?, ESError?) -> Void)?
+
+  func authenticate(mode: AuthenticationMode, completion: @escaping (URL?, ESError?) -> Void) {
     log.verbose("")
     let nordeaAdapter = NordeaRequestAdapter()
     sessionManager.adapter = nordeaAdapter
@@ -30,18 +32,30 @@ class NordeaLoginWorker: LoginWorker {
     RESTRoutes.urlRoot = "https://api.nordeaopenbanking.com/"
 
     self.completionHandler = completion
-    let restRequest = RESTRoutes.authcode(clientId: nordeaAdapter.clientId)
 
-    sessionManager.request(restRequest).validate().responseJSON(completionHandler: { restResponse in
+    //If code has been set before calling authenticate (web oauth), we go directly to token fetch
+    if let code = loginArgs?.code {
+      self.getTokenWithCode(code)
+      return
+    }
+
+    let restRequest = RESTRoutes.authcode(clientId: nordeaAdapter.clientId, scenario: mode)
+
+    if mode == .withUI {
+      self.completionHandler?(restRequest.urlRequest?.url, nil)
+      return
+    }
+
+    sessionManager.request(restRequest).validate().responseString (completionHandler: { restResponse in
       if restResponse.result.isSuccess {
-        if let respObject = try? JSONDecoder().decode(GetAuthCodeResponse.self, from: restResponse.data!) as GetAuthCodeResponse {
-          let code = respObject.args.code
-          self.getTokenWithCode(code)
-        } else {
-          self.completionHandler?(ESError.authenticationFailure)
-        }
+          if let respObject = try? JSONDecoder().decode(GetAuthCodeResponse.self, from: restResponse.data!) as GetAuthCodeResponse {
+            let code = respObject.args.code
+            self.getTokenWithCode(code)
+          } else {
+            self.completionHandler?(nil, ESError.authenticationFailure)
+          }
       } else {
-        self.completionHandler?(ESError.requestFailure(reason: restResponse.error!.localizedDescription))
+        self.completionHandler?(nil, ESError.requestFailure(reason: restResponse.error!.localizedDescription))
       }
       log.debug(restResponse)
     })
@@ -54,9 +68,9 @@ class NordeaLoginWorker: LoginWorker {
         if let adapter = sessionManager.adapter as? NordeaRequestAdapter {
           adapter.auth = try? JSONDecoder().decode(Authorization.self, from: restResponse.data!)
         }
-        self.completionHandler?(nil)
+        self.completionHandler?(nil, nil)
       } else {
-        self.completionHandler?(ESError.authenticationFailure)
+        self.completionHandler?(nil, ESError.authenticationFailure)
       }
     }
   }

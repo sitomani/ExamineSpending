@@ -21,7 +21,8 @@ class LoginPresenter: LoginPresentationLogic {
   // MARK: Presentation
   func presentLoginResponse(response: Login.Auth.Response) {
     log.verbose("")
-    let viewModel = Login.Auth.ViewModel(errorMessage: response.error?.message())
+
+    let viewModel = Login.Auth.ViewModel(result: response.result)
     viewController?.displayLoginResult(viewModel: viewModel)
   }
 }

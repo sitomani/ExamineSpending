@@ -10,7 +10,7 @@ import Alamofire
 
 enum RESTRoutes: URLRequestConvertible {
   //Router paths
-  case authcode(clientId: String)
+  case authcode(clientId: String, scenario: AuthenticationMode)
   case token(code: String)
   case accounts
   case transactions(account: String, startDate: Date?, endDate: Date?, contKey: String?)
@@ -30,8 +30,8 @@ enum RESTRoutes: URLRequestConvertible {
 
   var route: (path: String, parameters: [String: Any]?) {
     switch self {
-    case .authcode(let clientId):
-      return ("v1/authentication?client_id=\(clientId)&redirect_uri=\(clientRedirectURI)&X-Response-Scenarios=AuthenticationSkipUI&state=", nil)
+    case .authcode(let clientId, let scenario):
+      return ("v1/authentication?client_id=\(clientId)&redirect_uri=\(clientRedirectURI)&X-Response-Scenarios=\(scenario.rawValue)&state=", nil)
     case .token(let code):
       return ("v1/authentication/access_token", ["code": code, "redirect_uri": clientRedirectURI])
     case .accounts:

@@ -11,6 +11,7 @@
 		452095FD20246D6A004D748E /* RESTRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452095FC20246D6A004D748E /* RESTRoutes.swift */; };
 		452095FF20247563004D748E /* NordeaRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452095FE20247563004D748E /* NordeaRequestAdapter.swift */; };
 		45209612202834B8004D748E /* TreeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45209611202834B8004D748E /* TreeModel.swift */; };
+		4544BDBF20E363AF003520D9 /* ESWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544BDBE20E363AF003520D9 /* ESWebViewController.swift */; };
 		455C2B44202442E000ABEE00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455C2B43202442E000ABEE00 /* AppDelegate.swift */; };
 		455C2B49202442E000ABEE00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455C2B47202442E000ABEE00 /* Main.storyboard */; };
 		455C2B4B202442E000ABEE00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455C2B4A202442E000ABEE00 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		452095FC20246D6A004D748E /* RESTRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTRoutes.swift; sourceTree = "<group>"; };
 		452095FE20247563004D748E /* NordeaRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordeaRequestAdapter.swift; sourceTree = "<group>"; };
 		45209611202834B8004D748E /* TreeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeModel.swift; sourceTree = "<group>"; };
+		4544BDBE20E363AF003520D9 /* ESWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESWebViewController.swift; sourceTree = "<group>"; };
 		455C2B40202442E000ABEE00 /* ExamineSpending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamineSpending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		455C2B43202442E000ABEE00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455C2B48202442E000ABEE00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				45D61F3220E0E47F00869814 /* LoginViewController.swift */,
 				45D61F3320E0E47F00869814 /* LoginPresenter.swift */,
 				45D61F3420E0E47F00869814 /* LoginRouter.swift */,
+				4544BDBE20E363AF003520D9 /* ESWebViewController.swift */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45D61F4720E0E47F00869814 /* LoginViewController.swift in Sources */,
+				4544BDBF20E363AF003520D9 /* ESWebViewController.swift in Sources */,
 				45209612202834B8004D748E /* TreeModel.swift in Sources */,
 				452095FD20246D6A004D748E /* RESTRoutes.swift in Sources */,
 				45846B4D20A5BBB8008EA4D2 /* ESModels.swift in Sources */,

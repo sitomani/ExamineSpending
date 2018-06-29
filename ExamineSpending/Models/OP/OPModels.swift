@@ -7,57 +7,84 @@
 
 import Foundation
 
+struct OPAccountsRoot: Decodable {
+  let data: [OPAccount]
+  let meta, links: String
+}
+
 struct OPAccount: Decodable, ESAccount {
   var accountNumber: String {
-    return iban
-  }
-
-  var balance: String {
-    return String(opBalance)
+    return identifier
   }
 
   var available: String {
-    return String(amountAvailable)
+    return balance
   }
 
   var transactionsAccess: ESAccess = .available
 
   static func buildFromData(_ data: Data) -> [ESAccount]? {
-    if let accts = try? JSONDecoder().decode([OPAccount].self, from: data) {
-      return accts
-    } else {
-      log.error("JSON parsing failed")
+    do {
+      let root = try JSONDecoder().decode(OPAccountsRoot.self, from: data)
+      return root.data
+    } catch {
+      log.error("JSON parsing failed: \n \(error))")
       return []
     }
   }
 
-  let accountId, iban, bic, accountName: String
-  let opBalance, amountAvailable: Double
-  let currency: String
+  let accountName, type, balance, subType, currency, nickname, accountId, identifier, servicerScheme, identifierScheme, servicerIdentifier: String
 
   enum CodingKeys: String, CodingKey {
-    case accountId, iban, bic, accountName, amountAvailable, currency
-    case opBalance = "balance"
+    case type, balance, subType, currency, nickname, accountId, identifier, servicerScheme, identifierScheme, servicerIdentifier
+    case accountName = "name"
   }
 }
 
+struct OPTransactionsRoot: Decodable {
+  let data: [OPTransaction]
+  let meta, links: String
+}
+
+struct TransactionParty: Codable {
+  let accountIdentifier: String
+  let accountIdentifierType: String
+  let accountName: String
+  let servicerIdentifier: String
+  let servicerIdentifierType: String
+}
+
 struct OPTransaction: Decodable, ESTransaction {
-  var transactionId: String
+  var bookingDate: String
+  var transactionId: String = ""
   var type: ESTransactionType {
-    return opAmount < 0 ? .debit : .credit
+    return creditDebitIndicator == "debit" ? .debit : .credit
   }
-  var amount: String {
-      return String(opAmount)
+  var amount: String
+  var debtorName: String? {
+    return debtor?.accountName ?? ""
   }
-  var debtorName: String?
-  var creditorName: String?
+
+  var creditorName: String? {
+    return creditor?.accountName ?? "<unknown>"
+  }
   var description: String {
-      return payer
+      return message
   }
 
   static func buildFromData(_ data: Data) -> ([ESTransaction], String?)? {
     do {
-      let transactions = try JSONDecoder().decode([OPTransaction].self, from: data)
+      let root = try JSONDecoder().decode(OPTransactionsRoot.self, from: data)
+
+      //To fix missing transactionId in OP Transaction data, create an unique id for each transaction
+      var transactions: [OPTransaction] = []
+      for txn in root.data {
+        var myTxn = txn
+        if myTxn.transactionId.count == 0 {
+          myTxn.transactionId = UUID().uuidString
+        }
+        transactions.append(myTxn)
+      }
       return (transactions, nil)
     } catch {
       log.error("JSON parsing failed \(error)")
@@ -65,15 +92,15 @@ struct OPTransaction: Decodable, ESTransaction {
     }
   }
 
-  let valueDate, bookingDate: String
-  let opAmount: Double
-  let currency, payer, purpose: String
-  let reference, message: String?
-  let accountID: String
+  let accountId, archiveId, currency, creditDebitIndicator, accountBalance, valueDateTime, status, transactionAddress: String
+  let isoTransactionCode, opTransactionCode, merchantName, merchantCategoryCode, reference, message: String
+  let debtor: TransactionParty?
+  let creditor: TransactionParty?
 
   enum CodingKeys: String, CodingKey {
-    case opAmount = "amount"
-    case transactionId, valueDate, bookingDate, currency, payer, reference, purpose, message
-    case accountID = "accountId"
+    case amount, accountId, archiveId, currency, creditDebitIndicator, accountBalance, valueDateTime, status, transactionAddress
+    case isoTransactionCode, opTransactionCode, merchantName, merchantCategoryCode, reference, message
+    case debtor, creditor
+    case bookingDate = "bookingDateTime"
   }
 }

@@ -20,6 +20,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
   var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
 
   @IBOutlet var spinner: UIActivityIndicatorView?
+  @IBOutlet var oauthSwitch: UISwitch?
 
   // MARK: Object lifecycle
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -65,10 +66,15 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
   func displayLoginResult(viewModel: Login.Auth.ViewModel) {
     log.verbose("")
     spinner?.stopAnimating()
-    if let message = viewModel.errorMessage {
-      showErrorDialog(message: message)
-    } else {
+    switch viewModel.result {
+    case .failed(let error):
+      showErrorDialog(message: error.message())
+    case .pending:
+      performSegue(withIdentifier: "WebOAuth", sender: self)
+    case .success:
       performSegue(withIdentifier: "Examiner", sender: self)
+    case .canceled:
+      log.info("User canceled authentication")
     }
   }
 
@@ -77,9 +83,11 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     if let buttonText = sender.title(for: .normal) {
       //ghetto mechanism to identify bank by reading button title
       if buttonText.contains(" OP ") {
-        interactor?.login(Login.Auth.Request(bank: .op))
+        interactor?.login(Login.Auth.Request(bank: .op, mode: .skipUI, code: nil))
       } else {
-        interactor?.login(Login.Auth.Request(bank: .nordea))
+        let switchIsOn = oauthSwitch?.isOn ?? false
+        let mode: AuthenticationMode = switchIsOn ? .withUI : .skipUI
+        interactor?.login(Login.Auth.Request(bank: .nordea, mode: mode, code: nil))
       }
     }
   }

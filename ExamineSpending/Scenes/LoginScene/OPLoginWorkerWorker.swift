@@ -12,13 +12,13 @@
 import UIKit
 
 class OPLoginWorker: LoginWorker {
-  func authenticate(_ completion: @escaping (ESError?) -> Void) {
+  func authenticate(mode: AuthenticationMode, completion: @escaping (URL?, ESError?) -> Void) {
     // OP Open API does not have a real authentication interface, so we just
     // set up route specifics and complete the operation
 
     sessionManager.adapter = OPRequestAdapter()
-    RESTRoutes.accountAPIVersion = "v1"
-    RESTRoutes.urlRoot = "https://sandbox.apis.op-palvelut.fi/"
-    completion(nil)
+    RESTRoutes.accountAPIVersion = "v2"
+    RESTRoutes.urlRoot = "https://sandbox.apis.op-palvelut.fi/accounts/"
+    completion(nil, nil)
   }
 }

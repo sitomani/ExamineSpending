@@ -13,7 +13,7 @@ import UIKit
 import Alamofire
 
 protocol LoginWorker {
-  func authenticate(_ completion: @escaping (ESError?) -> Void)
+  func authenticate(mode: AuthenticationMode, completion: @escaping (URL?, ESError?) -> Void)
 }
 
 protocol LoginBusinessLogic {
@@ -21,26 +21,41 @@ protocol LoginBusinessLogic {
 }
 
 protocol LoginDataStore {
-  var token: String { get set }
+  var oauthUrl: URL? { get set }
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
-  var token: String = ""
+  var oauthUrl: URL?
   var presenter: LoginPresentationLogic?
 
   var worker: LoginWorker?
 
-  // MARK: Do something
   func login(_ request: Login.Auth.Request) {
     log.verbose("")
+
     switch request.bank {
     case .nordea:
-      worker = NordeaLoginWorker()
+      let nordeaWorker = NordeaLoginWorker()
+      if let code = request.code {
+        let args = Args(code: code, state: "")
+        nordeaWorker.loginArgs = args
+      }
+      worker = nordeaWorker
     case .op:
       worker = OPLoginWorker()
     }
-    worker?.authenticate({ (err) in
-      self.presenter?.presentLoginResponse(response: Login.Auth.Response(error: err))
-    })
+
+    worker?.authenticate(mode: request.mode) { (oauthUrl, err) in
+      let result: LoginResult
+      if let error = err {
+        result = LoginResult.failed(error)
+      } else if let url = oauthUrl {
+        self.oauthUrl = url
+        result = LoginResult.pending
+      } else {
+        result = .success
+      }
+      self.presenter?.presentLoginResponse(response: Login.Auth.Response(result: result))
+    }
   }
 }

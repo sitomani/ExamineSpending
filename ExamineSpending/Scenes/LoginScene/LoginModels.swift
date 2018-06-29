@@ -11,17 +11,35 @@
 
 import UIKit
 
+enum LoginResult {
+  case success
+  case failed(ESError)
+  case pending
+  case canceled
+}
+
+enum AuthenticationMode: String {
+  case noAuth
+  case skipUI = "AuthenticationSkipUI"
+  case skipAccessControl = "AuthorizationSkipAccessControl"
+  case withUI = "AuthenticationWithUI"
+}
+
 enum Login {
   // MARK: Use cases
   enum Auth {
     struct Request {
       var bank: ESBank
+      var mode: AuthenticationMode
+      var code: String?
     }
+
     struct Response {
-      var error: ESError?
+      var result: LoginResult
     }
+
     struct ViewModel {
-      var errorMessage: String?
+      var result: LoginResult
     }
   }
 }

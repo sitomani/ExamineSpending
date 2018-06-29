@@ -25,12 +25,17 @@ class OPRequestAdapter: RequestAdapter, ESObjectFactory {
 
   let opToken = opTokens[0]
 
+  var requestId: Int = 0
+  var sessionId: UUID = UUID.init()
+
   func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+    requestId += 1
     var urlReq = urlRequest
 
     urlReq.setValue(opAPIKey, forHTTPHeaderField: "x-api-key")
-    urlReq.setValue(opToken, forHTTPHeaderField: "x-authorization")
-
+    urlReq.setValue(opToken, forHTTPHeaderField: "authorization")
+    urlReq.setValue("\(requestId)", forHTTPHeaderField: "x-request-id")
+    urlReq.setValue(sessionId.uuidString, forHTTPHeaderField: "x-session-id")
     let logString = "\(urlReq.httpMethod ?? "<unknown_method>") \(urlReq)"
     log.debug(logString)
 

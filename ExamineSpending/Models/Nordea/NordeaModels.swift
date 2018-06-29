@@ -73,6 +73,9 @@ struct NordeaAccount: Decodable, ESAccount {
   }
 
   var balance: String {
+    if bookedBalance == nil {
+      log.error("Account \(accountNumber) has no balance")
+    }
     return bookedBalance ?? "0.00"
   }
 

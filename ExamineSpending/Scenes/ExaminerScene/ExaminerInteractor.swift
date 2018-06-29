@@ -47,6 +47,8 @@ class ExaminerInteractor: ExaminerBusinessLogic, ExaminerDataStore {
   }
 
   func getFilteredTransactions() -> [ESTransaction] {
+    guard let children = browsingPath.last?.children, children.count > 0 else { return [] }
+
     let idList = browsingPath.last!.children.map { $0.objectId ?? "" }
     let filteredSet = transactions.filter { txn in
       return idList.contains(where: { $0 == txn.transactionId })
@@ -54,10 +56,9 @@ class ExaminerInteractor: ExaminerBusinessLogic, ExaminerDataStore {
 
     var adjustCount = 0
     for index in 0...browsingIndex where browsingPath.last!.children[index].nodeType != .transaction {
-        adjustCount += 1
+      adjustCount += 1
     }
     browsingIndex -= adjustCount
-
     return filteredSet
   }
 
@@ -69,6 +70,7 @@ class ExaminerInteractor: ExaminerBusinessLogic, ExaminerDataStore {
     presenter?.presentRequestActive(true)
     sessionManager.request(request).validate().responseJSON(completionHandler: { restResponse in
       if restResponse.result.isSuccess, let accounts = factoryObject.buildFromData(restResponse.data!) {
+        log.info("\(accounts.count) accounts fetched")
         self.buildAccountNodes(accounts: accounts)
         self.presenter?.presentNode(node: self.txnRoot, pathlen: 1, range: nil)
       } else {

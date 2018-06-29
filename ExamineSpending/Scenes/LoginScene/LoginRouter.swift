@@ -13,13 +13,14 @@ import UIKit
 
 @objc protocol LoginRoutingLogic {
   func toExaminer(segue: UIStoryboardSegue?)
+  func toWebOAuth(segue: UIStoryboardSegue?)
 }
 
 protocol LoginDataPassing {
   var dataStore: LoginDataStore? { get }
 }
 
-class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
+class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing, DismissalDelegate {
   weak var viewController: LoginViewController?
   var dataStore: LoginDataStore?
 
@@ -27,5 +28,25 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
   func toExaminer(segue: UIStoryboardSegue?) {
     //We have no data here to pass over to Examiner view.
     //Authentication Token is stored directly to request adapter in sessionManager.
+  }
+
+  func toWebOAuth(segue: UIStoryboardSegue?) {
+    guard let oauthVC = segue?.destination as? ESWebViewController else {
+      log.error("Segue destination is not ESWebViewController")
+      return
+    }
+
+    oauthVC.dismissalDelegate = self
+    oauthVC.startAtUrl = dataStore?.oauthUrl
+  }
+
+  func finishedShowing(viewController: UIViewController, result: [String: Any?]?) {
+    if let code = result?["code"] as? String {
+      let loginRequest = Login.Auth.Request(bank: .nordea, mode: .withUI, code: code)
+      self.viewController?.interactor?.login(loginRequest)
+    } else {
+      self.viewController?.displayLoginResult(viewModel: Login.Auth.ViewModel(result: .canceled))
+    }
+    viewController.dismiss(animated: true, completion: nil)
   }
 }
