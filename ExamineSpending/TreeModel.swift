@@ -126,7 +126,7 @@ class ESNode {
   }
 
   func search(title: String, valueType: ESValueType, currency: String) -> ESNode? {
-    if title == self.title && valueType == self.valueType && currency == self.currency {
+    if title == self.title && valueType == self.valueType && currency == self.currency && self.nodeType != .expandableAccount {
       return self
     }
 
