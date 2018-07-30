@@ -81,6 +81,7 @@ struct OPTransaction: Decodable, ESTransaction {
       for txn in root.data {
         var myTxn = txn
         if myTxn.transactionId.count == 0 {
+          log.warning("transactionId missing in data for a transaction")
           myTxn.transactionId = UUID().uuidString
         }
         transactions.append(myTxn)
