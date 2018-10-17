@@ -19,7 +19,7 @@ After this, you can build and run the app. You can log in to either Nordea or OP
 **Nordea** API uses OAuth style authentication where you can either run without UI, or with a simulated OAuth flow. See below for details on that.
 
 ##### Nordea Simulated OAuth flow
-ExamineSpending app implements Nordea Simulated OAuth flow as in Nordea API console. When you want to use the OAuth2 flow, follow these steps:
+Nordea Open Banking has disabled the API console in **[today](https://developer.nordeaopenbanking.com/app/console)** (sic!) and this has also rendered the OAuth simulation unusable. Application still implements the flow  flow as it used to work in Nordea API console. You can test this, but currently no guarantees on it working:
 1. Turn on the **Simulate OAuth Flow** switch on the login page.
 2. Tap **Login To Nordea API** and wait until the web oauth page is displayed
 3. Select **Mobile Offline?** to get the web oauth page to offline mode
