@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 /**
- * OP-specific request adaptation layer
+ * Nordea specific request adaptation layer
  */
 class NordeaRequestAdapter: RequestAdapter, ESObjectFactory {
 
@@ -29,15 +29,16 @@ class NordeaRequestAdapter: RequestAdapter, ESObjectFactory {
       urlReq.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
       bodyString = String.init(data: bodyData, encoding: .utf8)
     } else {
+      urlReq.setValue("application/json", forHTTPHeaderField: "Content-Type")
       bodyString = nil
     }
 
-    if urlReq.url?.absoluteString.contains("/authentication?client_id") == false {
+    if urlReq.url?.absoluteString.contains("/authorize?") == false {
       urlReq.setValue(clientId, forHTTPHeaderField: "X-IBM-Client-Id")
       urlReq.setValue(clientSecret, forHTTPHeaderField: "X-IBM-Client-Secret")
     }
 
-    if urlReq.url?.absoluteString.contains("/authentication") == false {
+    if urlReq.url?.absoluteString.contains("/authorize") == false {
       if let token = auth?.accessToken {
         urlReq.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
       }

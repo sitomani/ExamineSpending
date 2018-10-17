@@ -31,9 +31,16 @@ enum RESTRoutes: URLRequestConvertible {
   var route: (path: String, parameters: [String: Any]?) {
     switch self {
     case .authcode(let clientId, let scenario):
-      return ("v1/authentication?client_id=\(clientId)&redirect_uri=\(clientRedirectURI)&X-Response-Scenarios=\(scenario.rawValue)&state=", nil)
+      return ("v2/authorize", ["state": "oauth2",
+                               "client_id": clientId,
+                               "scope":"ACCOUNTS_BASIC,ACCOUNTS_BALANCES,ACCOUNTS_DETAILS,ACCOUNTS_TRANSACTIONS",
+                               "duration": 1234,
+                               "language": "en",
+                               "X-Response-Scenarios": scenario.rawValue,
+                               "max_tx_history": 120,
+                               "redirect_uri": clientRedirectURI])
     case .token(let code):
-      return ("v1/authentication/access_token", ["code": code, "redirect_uri": clientRedirectURI])
+      return ("v2/authorize/access_token", ["code": code, "redirect_uri": clientRedirectURI])
     case .accounts:
       return (RESTRoutes.accountAPIVersion + "/accounts", nil)
     case .transactions(let accountId, let fromDate, let toDate, let continuationKey):
