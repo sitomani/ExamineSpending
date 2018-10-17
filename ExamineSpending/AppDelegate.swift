@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyBeaver
 
-let clientRedirectURI = "http://httpbin.org/get"
+let clientRedirectURI = "https://httpbin.org/get"
 let sessionManager = SessionManager.default
 let log = SwiftyBeaver.self
 
