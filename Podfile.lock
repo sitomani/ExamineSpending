@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (4.7.2)
-  - SwiftyBeaver (1.6.0)
-  - YMTreeMap (1.1.0)
+  - Alamofire (4.8.0)
+  - SwiftyBeaver (1.6.1)
+  - YMTreeMap (1.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7.1)
+  - Alamofire
   - SwiftyBeaver
   - YMTreeMap
 
@@ -15,10 +15,10 @@ SPEC REPOS:
     - YMTreeMap
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
-  YMTreeMap: b0c9004b4b072a360e85d3442915eed7deedcfa4
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
+  YMTreeMap: 8bd766573bc5005cf6b6f5d2674e4225ee734f6e
 
-PODFILE CHECKSUM: bcf78d7b15c9eecc0b519b4f046ea9a3593bf764
+PODFILE CHECKSUM: d4f8978aee51fdaecd179298cde7de4ae5f85052
 
 COCOAPODS: 1.5.2

@@ -33,11 +33,12 @@ enum RESTRoutes: URLRequestConvertible {
     case .authcode(let clientId, let scenario):
       return ("v2/authorize", ["state": "oauth2",
                                "client_id": clientId,
-                               "scope":"ACCOUNTS_BASIC,ACCOUNTS_BALANCES,ACCOUNTS_DETAILS,ACCOUNTS_TRANSACTIONS",
+                               "scope": "ACCOUNTS_BASIC,ACCOUNTS_BALANCES,ACCOUNTS_DETAILS,ACCOUNTS_TRANSACTIONS",
                                "duration": 1234,
+                               "accounts": "FI6593857450293470,FI4710113500010326,FI7473834510057469",
                                "language": "en",
                                "X-Response-Scenarios": scenario.rawValue,
-                               "max_tx_history": 120,
+                               "max_tx_history": 12,
                                "redirect_uri": clientRedirectURI])
     case .token(let code):
       return ("v2/authorize/access_token", ["code": code, "redirect_uri": clientRedirectURI])

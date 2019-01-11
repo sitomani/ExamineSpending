@@ -7,6 +7,6 @@ target 'ExamineSpending' do
 
   # Pods for ExamineSpending
   pod 'YMTreeMap'
-  pod 'Alamofire', '~> 4.7.1'
+  pod 'Alamofire'
   pod 'SwiftyBeaver'
 end

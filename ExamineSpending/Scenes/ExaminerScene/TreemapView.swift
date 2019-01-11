@@ -77,9 +77,9 @@ class TreemapView: UIView, UIGestureRecognizerDelegate {
       } else {
         fontSize = 10.0
       }
-      let attrs = [NSAttributedStringKey.foregroundColor: UIColor.white,
-                   NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)
-                   ] as [NSAttributedStringKey: Any]
+      let attrs = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                   NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)
+                   ] as [NSAttributedString.Key: Any]
       str.draw(in: treeMapRect.insetBy(dx: 4, dy: 4), withAttributes: attrs)
       index += 1
     }

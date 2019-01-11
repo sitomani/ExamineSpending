@@ -53,6 +53,10 @@ struct NordeaResponse: Decodable {
   }
 }
 
+struct Bank: Decodable {
+  let name, bic, country: String
+}
+
 struct NordeaAccount: Decodable, ESAccount {
   static func buildFromData(_ data: Data) -> [ESAccount]? {
     do {
@@ -65,7 +69,7 @@ struct NordeaAccount: Decodable, ESAccount {
   }
 
   var accountNumber: String {
-    return nordeaAccountNumber.value
+    return nordeaAccountNumbers.first?.value ?? ""
   }
 
   var accountName: String {
@@ -88,16 +92,19 @@ struct NordeaAccount: Decodable, ESAccount {
   }
 
   let accountId, country: String
-  let nordeaAccountNumber: NordeaAccountNumber
-  let currency, ownerName, product, accountType: String
+  let nordeaAccountNumbers: [NordeaAccountNumber]
+  let currency, product, accountType: String
   let bookedBalance, availableBalance, valueDatedBalance: String?
+  let bank: Bank
+  let status, creditLimit, latestTransactionBookingDate: String?
   let links: [Link]
 
   enum CodingKeys: String, CodingKey {
     case accountId = "_id"
-    case country, currency, ownerName, product, accountType, bookedBalance, valueDatedBalance, availableBalance
+    case country, currency, product, accountType, bookedBalance, valueDatedBalance, availableBalance, status, creditLimit, latestTransactionBookingDate
+    case bank
     case links = "_links"
-    case nordeaAccountNumber = "accountNumber"
+    case nordeaAccountNumbers = "accountNumbers"
   }
 }
 
